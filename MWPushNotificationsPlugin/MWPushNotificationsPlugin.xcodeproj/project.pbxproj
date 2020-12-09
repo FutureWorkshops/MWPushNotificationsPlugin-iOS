@@ -10,6 +10,7 @@
 		B1AD684325811E6F003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
 		B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		B1AD684225811E6F003A8D01 /* MWPushNotificationsPluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWPushNotificationsPluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPluginTests.swift; sourceTree = "<group>"; };
 		B1AD684925811E6F003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		B1AD683B25811E6E003A8D01 /* MWPushNotificationsPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */,
 				B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */,
 				B1AD683D25811E6E003A8D01 /* Info.plist */,
 			);
@@ -182,6 +185,7 @@
 				TargetAttributes = {
 					B1AD683825811E6E003A8D01 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					B1AD684125811E6F003A8D01 = {
 						CreatedOnToolsVersion = 12.2;
@@ -276,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC2AC509D1B8B0C185278273 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = BQHMJ2C6RL;
@@ -441,6 +447,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -450,6 +457,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93E3B82DD636AA25A489CD50 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = BQHMJ2C6RL;
@@ -476,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA7721421828052B64961E4C /* Pods-MWPushNotificationsPluginTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQHMJ2C6RL;
 				INFOPLIST_FILE = MWPushNotificationsPluginTests/Info.plist;
@@ -495,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9ADEF979AAC2948D2B8E353F /* Pods-MWPushNotificationsPluginTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BQHMJ2C6RL;
 				INFOPLIST_FILE = MWPushNotificationsPluginTests/Info.plist;
