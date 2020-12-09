@@ -12,6 +12,7 @@
 		B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */; };
 		B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */; };
+		B1AD687625812052003A8D01 /* MWPushNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		B1AD684925811E6F003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPlugin.swift; sourceTree = "<group>"; };
 		B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsStep.swift; sourceTree = "<group>"; };
+		B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */,
+				B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */,
 			);
 			path = PushNotificationsStep;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */,
+				B1AD687625812052003A8D01 /* MWPushNotificationsViewController.swift in Sources */,
 				B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
