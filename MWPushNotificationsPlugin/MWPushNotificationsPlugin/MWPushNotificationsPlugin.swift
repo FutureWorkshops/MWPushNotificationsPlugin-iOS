@@ -16,7 +16,7 @@ public struct MWPushNotificationsPlugin: MobileWorkflowPlugin {
 
 public enum MWPushNotificationsStepType: String, MobileWorkflowStepType, CaseIterable {
     
-    case pushNotifications = "io.mobileworkflow.pushNotifications"
+    case pushNotifications = "io.mobileworkflow.NotificationPermission"
     
     public var typeName: String {
         return self.rawValue
