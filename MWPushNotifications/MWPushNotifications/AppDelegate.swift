@@ -25,5 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthRedirector {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return self.handleAuthRedirect(for: url)
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02x", $0) }.joined()
+        print(token)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        assertionFailure(error.localizedDescription)
+    }
 
 }
