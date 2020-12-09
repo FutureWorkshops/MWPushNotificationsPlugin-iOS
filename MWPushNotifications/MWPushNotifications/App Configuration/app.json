@@ -1,0 +1,39 @@
+{
+    "gatherAnalytics": false,
+    "id": 400,
+    "locales": [],
+    "name": "Notifications",
+    "navigationStyle": "list",
+    "servers": [],
+    "systemTintColor": "blue",
+    "workflows": [
+        {
+            "id": 767,
+            "identifier": "Notification Permission",
+            "materialIconName": "",
+            "name": "Notification Permission",
+            "navigationRules": [
+                {
+                    "from": "notifications",
+                    "rules": [
+                        {
+                            "to": "ORKNullStepIdentifier"
+                        }
+                    ]
+                }
+            ],
+            "sfSymbolName": "",
+            "steps": [
+                {
+                    "identifier": "notifications",
+                    "imageURL": "https://source.unsplash.com/xv7-GlvBLFw/800x600",
+                    "optional": false,
+                    "text": "We would like to send you notifications to let you know about offers!",
+                    "title": "Notifications",
+                    "type": "io.mobileworkflow.NotificationPermission",
+                    "uuid": "ab511049-3a07-4aed-b59d-8f46e02a3fec"
+                }
+            ]
+        }
+    ]
+}

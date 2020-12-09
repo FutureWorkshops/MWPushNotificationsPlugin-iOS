@@ -11,6 +11,7 @@
 		AD4F14713F389413B12E1DC4 /* Pods_MWPushNotificationsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224290C6210E47082CA5415 /* Pods_MWPushNotificationsTests.framework */; };
 		B1AD685825811E8D003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD685925811E8D003A8D01 /* MWPushNotificationsPlugin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1AD687B258120F8003A8D01 /* app.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AD687A258120F8003A8D01 /* app.json */; };
 		B75028B51C5A3F94000EB3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75028B41C5A3F94000EB3CF /* AppDelegate.swift */; };
 		B75028BC1C5A3F94000EB3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75028BB1C5A3F94000EB3CF /* Assets.xcassets */; };
 		B75028BF1C5A3F94000EB3CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75028BD1C5A3F94000EB3CF /* LaunchScreen.storyboard */; };
@@ -51,6 +52,7 @@
 		8224290C6210E47082CA5415 /* Pods_MWPushNotificationsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWPushNotificationsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C21402F88B0A7340090DE1 /* Pods-MWPushNotifications-MWPushNotifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotifications-MWPushNotifications.release.xcconfig"; path = "Target Support Files/Pods-MWPushNotifications-MWPushNotifications/Pods-MWPushNotifications-MWPushNotifications.release.xcconfig"; sourceTree = "<group>"; };
 		B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MWPushNotificationsPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AD687A258120F8003A8D01 /* app.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = app.json; sourceTree = "<group>"; };
 		B75028B11C5A3F94000EB3CF /* MWPushNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWPushNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75028B41C5A3F94000EB3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B75028BB1C5A3F94000EB3CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +110,14 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		B1AD6879258120E8003A8D01 /* App Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B1AD687A258120F8003A8D01 /* app.json */,
+			);
+			path = "App Configuration";
+			sourceTree = "<group>";
+		};
 		B75028A81C5A3F94000EB3CF = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +141,7 @@
 		B75028B31C5A3F94000EB3CF /* MWPushNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				B1AD6879258120E8003A8D01 /* App Configuration */,
 				B75028D51C5A404A000EB3CF /* Resources */,
 				B75028D41C5A4045000EB3CF /* Supporting Files */,
 				B75028B41C5A3F94000EB3CF /* AppDelegate.swift */,
@@ -270,6 +281,7 @@
 			files = (
 				B75028BF1C5A3F94000EB3CF /* LaunchScreen.storyboard in Resources */,
 				B75028BC1C5A3F94000EB3CF /* Assets.xcassets in Resources */,
+				B1AD687B258120F8003A8D01 /* app.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
