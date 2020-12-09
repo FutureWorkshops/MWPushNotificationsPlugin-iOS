@@ -11,6 +11,7 @@
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
 		B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */; };
+		B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPluginTests.swift; sourceTree = "<group>"; };
 		B1AD684925811E6F003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPlugin.swift; sourceTree = "<group>"; };
+		B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */,
+				B1AD686C25811FBF003A8D01 /* PushNotificationsStep */,
 				B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */,
 				B1AD683D25811E6E003A8D01 /* Info.plist */,
 			);
@@ -111,6 +114,14 @@
 				B1AD684925811E6F003A8D01 /* Info.plist */,
 			);
 			path = MWPushNotificationsPluginTests;
+			sourceTree = "<group>";
+		};
+		B1AD686C25811FBF003A8D01 /* PushNotificationsStep */ = {
+			isa = PBXGroup;
+			children = (
+				B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */,
+			);
+			path = PushNotificationsStep;
 			sourceTree = "<group>";
 		};
 		D760899F26E7DE0522D1F551 /* Frameworks */ = {
@@ -280,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */,
 				B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,3 +13,18 @@ public struct MWPushNotificationsPlugin: MobileWorkflowPlugin {
         return MWPushNotificationsStepType.allCases
     }
 }
+
+public enum MWPushNotificationsStepType: String, MobileWorkflowStepType, CaseIterable {
+    
+    case pushNotifications = "io.mobileworkflow.pushNotifications"
+    
+    public var typeName: String {
+        return self.rawValue
+    }
+    
+    public var stepClass: MobileWorkflowStep.Type {
+        switch self {
+        case .pushNotifications: return MWPushNotificationsStep.self
+        }
+    }
+}
