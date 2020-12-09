@@ -12,6 +12,7 @@
 		B1AD685825811E8D003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD685925811E8D003A8D01 /* MWPushNotificationsPlugin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1AD687B258120F8003A8D01 /* app.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AD687A258120F8003A8D01 /* app.json */; };
+		B1AD687F2581212C003A8D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD687E2581212C003A8D01 /* SceneDelegate.swift */; };
 		B75028B51C5A3F94000EB3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75028B41C5A3F94000EB3CF /* AppDelegate.swift */; };
 		B75028BC1C5A3F94000EB3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75028BB1C5A3F94000EB3CF /* Assets.xcassets */; };
 		B75028BF1C5A3F94000EB3CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75028BD1C5A3F94000EB3CF /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		85C21402F88B0A7340090DE1 /* Pods-MWPushNotifications-MWPushNotifications.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotifications-MWPushNotifications.release.xcconfig"; path = "Target Support Files/Pods-MWPushNotifications-MWPushNotifications/Pods-MWPushNotifications-MWPushNotifications.release.xcconfig"; sourceTree = "<group>"; };
 		B1AD685725811E8D003A8D01 /* MWPushNotificationsPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MWPushNotificationsPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AD687A258120F8003A8D01 /* app.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = app.json; sourceTree = "<group>"; };
+		B1AD687E2581212C003A8D01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B75028B11C5A3F94000EB3CF /* MWPushNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWPushNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75028B41C5A3F94000EB3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B75028BB1C5A3F94000EB3CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				B75028D51C5A404A000EB3CF /* Resources */,
 				B75028D41C5A4045000EB3CF /* Supporting Files */,
 				B75028B41C5A3F94000EB3CF /* AppDelegate.swift */,
+				B1AD687E2581212C003A8D01 /* SceneDelegate.swift */,
 			);
 			path = MWPushNotifications;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				TargetAttributes = {
 					B75028B01C5A3F94000EB3CF = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = BQHMJ2C6RL;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -365,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75028B51C5A3F94000EB3CF /* AppDelegate.swift in Sources */,
+				B1AD687F2581212C003A8D01 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,13 +515,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWPushNotifications/Supporting Files/MWPushNotifications.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BQHMJ2C6RL;
 				INFOPLIST_FILE = "MWPushNotifications/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.futureworkshops.MWPushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FW-Ent-All-Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -529,13 +534,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWPushNotifications/Supporting Files/MWPushNotifications.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BQHMJ2C6RL;
 				INFOPLIST_FILE = "MWPushNotifications/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.futureworkshops.MWPushNotifications;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "FW-Ent-All-Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
