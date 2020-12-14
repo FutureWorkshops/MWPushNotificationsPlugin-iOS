@@ -44,6 +44,10 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         guard let token = notification.userInfo?["apns_token"] as? String else {
             preconditionFailure("You must've received a token by now.")
         }
+        
+        let result = MWPushNotificationsResult(identifier: self.pushNotificationsStep.identifier, apnsToken: token)
+        self.addResult(result)
+        self.goForward()
     }
     
 }

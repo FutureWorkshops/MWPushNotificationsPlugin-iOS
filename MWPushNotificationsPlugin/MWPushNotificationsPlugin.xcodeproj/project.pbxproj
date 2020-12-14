@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B103B1BC258782F00021139F /* MWPushNotificationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */; };
 		B1AD684325811E6F003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
 		B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +35,7 @@
 		9ADEF979AAC2948D2B8E353F /* Pods-MWPushNotificationsPluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotificationsPluginTests.release.xcconfig"; path = "Target Support Files/Pods-MWPushNotificationsPluginTests/Pods-MWPushNotificationsPluginTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA7721421828052B64961E4C /* Pods-MWPushNotificationsPluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotificationsPluginTests.debug.xcconfig"; path = "Target Support Files/Pods-MWPushNotificationsPluginTests/Pods-MWPushNotificationsPluginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC2AC509D1B8B0C185278273 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig"; path = "Target Support Files/Pods-MWPushNotifications-MWPushNotificationsPlugin/Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig"; sourceTree = "<group>"; };
+		B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsResult.swift; sourceTree = "<group>"; };
 		B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MWPushNotificationsPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWPushNotificationsPlugin.h; sourceTree = "<group>"; };
 		B1AD683D25811E6E003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */,
 				B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */,
+				B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */,
 			);
 			path = PushNotificationsStep;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */,
 				B1AD687625812052003A8D01 /* MWPushNotificationsViewController.swift in Sources */,
 				B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */,
+				B103B1BC258782F00021139F /* MWPushNotificationsResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
