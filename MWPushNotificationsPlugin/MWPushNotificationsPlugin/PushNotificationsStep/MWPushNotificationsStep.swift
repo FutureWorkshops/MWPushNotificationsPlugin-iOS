@@ -26,7 +26,6 @@ public class MWPushNotificationsStep: ORKStep {
 extension MWPushNotificationsStep: MobileWorkflowStep {
     public static func build(step: StepInfo, services: MobileWorkflowServices) throws -> ORKStep {
         let newStep = MWPushNotificationsStep(identifier: step.data.identifier)
-        #warning("This should be done by default on the MobileWorkflowStep, but for some reason the .text was always nil")
         newStep.text = step.data.content["text"] as? String
         return newStep
     }
