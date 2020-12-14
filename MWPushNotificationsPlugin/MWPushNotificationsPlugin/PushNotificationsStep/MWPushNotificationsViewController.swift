@@ -9,18 +9,28 @@ import UIKit
 import UserNotifications
 import MobileWorkflowCore
 
-public class MWPushNotificationsViewController: ORKStepViewController {
+public class MWPushNotificationsViewController: MobileWorkflowButtonViewController {
+    
+    private var pushNotificationsStep: MWPushNotificationsStep {
+        guard let pushNotificationsStep = self.step as? MWPushNotificationsStep else {
+            preconditionFailure("Unexpected step type. Expecting \(String(describing: MWPushNotificationsStep.self)), got \(String(describing: type(of: self.step)))")
+        }
+        return pushNotificationsStep
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
-            DispatchQueue.main.async {
-                if success {
-                    UIApplication.shared.registerForRemoteNotifications()
-                } else if let error = error {
-                    assertionFailure(error.localizedDescription)
-                } else {
-                    assertionFailure("Failed and had no errors.")
+        
+        self.configureWithTitle(self.pushNotificationsStep.title ?? "NO_TITLE", body: self.pushNotificationsStep.text ?? "NO_TEXT", buttonTitle: "Enable") {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+                DispatchQueue.main.async {
+                    if success {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    } else if let error = error {
+                        self.show(error)
+                    } else {
+                        assertionFailure("Failed and had no errors.")
+                    }
                 }
             }
         }
