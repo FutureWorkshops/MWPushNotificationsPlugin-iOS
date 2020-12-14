@@ -21,6 +21,9 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        #warning("Temporary workaround to retrieve the APNS token")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didRecieveNewAPNSTokenThrough(_:)), name: NSNotification.Name("MWPushNotification.apnsToken"), object: nil)
+        
         self.configureWithTitle(self.pushNotificationsStep.title ?? "NO_TITLE", body: self.pushNotificationsStep.text ?? "NO_TEXT", buttonTitle: "Enable") {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
                 DispatchQueue.main.async {
@@ -33,6 +36,13 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                     }
                 }
             }
+        }
+    }
+    
+    @objc
+    private func didRecieveNewAPNSTokenThrough(_ notification: Notification) {
+        guard let token = notification.userInfo?["apns_token"] as? String else {
+            preconditionFailure("You must've received a token by now.")
         }
     }
     

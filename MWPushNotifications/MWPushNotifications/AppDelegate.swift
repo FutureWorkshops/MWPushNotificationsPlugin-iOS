@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthRedirector {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02x", $0) }.joined()
-        print(token)
+        #warning("Temporary workaround to send the APNS token to the Plugin")
+        NotificationCenter.default.post(name: NSNotification.Name("MWPushNotification.apnsToken"), object: nil, userInfo: ["apns_token":token])
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
