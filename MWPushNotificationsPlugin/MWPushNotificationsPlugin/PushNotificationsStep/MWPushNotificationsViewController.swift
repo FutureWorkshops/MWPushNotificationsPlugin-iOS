@@ -25,12 +25,12 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         NotificationCenter.default.addObserver(self, selector: #selector(self.didRecieveNewAPNSTokenThrough(_:)), name: NSNotification.Name("MWPushNotification.apnsToken"), object: nil)
         
         self.configureWithTitle(self.pushNotificationsStep.title ?? "NO_TITLE", body: self.pushNotificationsStep.text ?? "NO_TEXT", buttonTitle: "Enable") {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] success, error in
                 DispatchQueue.main.async {
                     if success {
                         UIApplication.shared.registerForRemoteNotifications()
                     } else if let error = error {
-                        self.show(error)
+                        self?.show(error)
                     } else {
                         assertionFailure("Failed and had no errors.")
                     }
