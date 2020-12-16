@@ -19,13 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var urlSchemeManagers: [URLSchemeManager] = []
     private var rootViewController: MobileWorkflowRootViewController!
     
+    private var appDelegate: AppDelegate? { UIApplication.shared.delegate as? AppDelegate }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
+        
+        let eventService = EventServiceImplementation()
+        self.appDelegate?.eventDelegate = eventService
+        
+        let networkService = NetworkServiceImplementation(authRedirectHandler: eventService.authRedirectHandler())
         
         let manager = AppConfigurationManager(
             withPlugins: [MWPushNotificationsPlugin.self],
             fileManager: FileManager.default,
-            authRedirectHandler: session.userInfo?[SessionUserInfoKey.authRedirectHandler] as? AuthRedirectHandler
+            networkService: networkService,
+            eventService: eventService
         )
         let preferredConfigurations = self.preferredConfigurations(urlContexts: connectionOptions.urlContexts)
         self.rootViewController = MobileWorkflowRootViewController(manager: manager, preferredConfigurations: preferredConfigurations)

@@ -10,7 +10,10 @@ import MobileWorkflowCore
 
 public class MWPushNotificationsStep: ORKStep {
     
-    override init(identifier: String) {
+    let services: MobileWorkflowServices
+    
+    init(identifier: String, services: MobileWorkflowServices) {
+        self.services = services
         super.init(identifier: identifier)
     }
     
@@ -25,7 +28,7 @@ public class MWPushNotificationsStep: ORKStep {
 
 extension MWPushNotificationsStep: MobileWorkflowStep {
     public static func build(step: StepInfo, services: MobileWorkflowServices) throws -> ORKStep {
-        let newStep = MWPushNotificationsStep(identifier: step.data.identifier)
+        let newStep = MWPushNotificationsStep(identifier: step.data.identifier, services: services)
         newStep.text = step.data.content["text"] as? String
         return newStep
     }
