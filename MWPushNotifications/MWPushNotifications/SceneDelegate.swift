@@ -11,10 +11,7 @@ import MWPushNotificationsPlugin
 import MobileWorkflowCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    enum SessionUserInfoKey {
-        static let authRedirectHandler = "authRedirectHandler"
-    }
-    
+
     var window: UIWindow?
     private var urlSchemeManagers: [URLSchemeManager] = []
     private var rootViewController: MobileWorkflowRootViewController!
