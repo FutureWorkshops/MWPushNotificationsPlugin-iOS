@@ -56,9 +56,9 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                     if let error = error {
                         self?.show(error)
                     } else if granted {
-                        self?.register()
+                        self?.register(currentStatus: .authorized)
                     } else {
-                        self?.userDeniedPermission()
+                        self?.userDeniedPermission(currentStatus: .denied)
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     private func resolveStatusBeforeUserAction(_ status: UNAuthorizationStatus) {
         switch status {
         case .authorized:
-            self.register() // obtain/re-obtain token
+            self.register(currentStatus: status) // obtain/re-obtain token
         case .denied:
             self.showConfirmationAlert(
                 title: L10n.PushNotification.deniedTitle,
@@ -93,7 +93,7 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                     if didConfirm {
                         self?.openSettings()
                     } else {
-                        self?.userDeniedPermission()
+                        self?.userDeniedPermission(currentStatus: status)
                     }
                 })
         case .notDetermined, .provisional, .ephemeral:
@@ -106,15 +106,19 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     private func resolveStatusAfterUserAction(_ status: UNAuthorizationStatus) {
         switch status {
         case .authorized, .provisional, .ephemeral:
-            self.register() // obtain/re-obtain token
+            self.register(currentStatus: status) // obtain/re-obtain token
         case .denied, .notDetermined:
             fallthrough
         @unknown default:
-            self.userDeniedPermission()
+            self.userDeniedPermission(currentStatus: status)
         }
     }
     
-    private func register() {
+    private func userDeniedPermission(currentStatus: UNAuthorizationStatus) {
+        self.register(currentStatus: currentStatus) // obtain token anyway - notifications will be delivered silently and the user may enable them later
+    }
+    
+    private func register(currentStatus: UNAuthorizationStatus) {
         self.registration = self.pushNotificationsStep.services.eventService.apnsTokenPublisher()
             .timeout(5.0, scheduler: DispatchQueue.global(), customError: { MWPushNotificationsError.registrationTimeout })
             .receive(on: DispatchQueue.main)
@@ -127,7 +131,7 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                 self?.registration = nil
             } receiveValue: { [weak self] data in
                 guard let token = data else { return }
-                self?.didReceiveToken(token)
+                self?.didReceiveToken(token, currentStatus: currentStatus)
             }
     }
     
@@ -141,14 +145,25 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    private func didReceiveToken(_ token: Data) {
+    private func didReceiveToken(_ token: Data, currentStatus: UNAuthorizationStatus) {
         let stringToken = token.map({ String(format: "%02x", $0) }).joined()
-        let result = MWPushNotificationsResult(identifier: self.pushNotificationsStep.identifier, apnsToken: stringToken)
+        let result = MWPushNotificationsResult(identifier: self.pushNotificationsStep.identifier, status: currentStatus.name, token: stringToken)
         self.addResult(result)
         self.goForward()
     }
+}
+
+private extension UNAuthorizationStatus {
     
-    private func userDeniedPermission() {
-        self.goForward() // go forward without adding token result
+    var name: String {
+        switch self {
+        case .authorized: return "authorized"
+        case .denied: return "denied"
+        case .ephemeral: return "ephemeral"
+        case .notDetermined: return "notDetermined"
+        case .provisional: return "provisional"
+        @unknown default:
+            return "unknown"
+        }
     }
 }

@@ -25,6 +25,7 @@
                     "text": "APN Token Text",
                     "sendTo": "xavi@futureworkshops.com",
                     "requestPropertyIdentifiers": [
+                        "notifications.status",
                         "notifications.token"
                     ],
                     "uuid": "16100d6b-45d4-45a1-8ad6-8851ef9c2e9c",
