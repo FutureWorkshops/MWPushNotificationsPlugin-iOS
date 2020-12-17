@@ -13,6 +13,10 @@ import MobileWorkflowCore
 enum L10n {
     enum PushNotification {
         static let generalError = "Unable to register for Push Notifcations."
+        static let deniedTitle = "Push Notifications"
+        static let deniedText = "You have currently opted out of receiving Push Notifications. You can update this preference in Settings."
+        static let deniedCancelTitle = "Skip"
+        static let deniedConfirmTitle = "Settings"
     }
 }
 
@@ -33,7 +37,8 @@ enum MWPushNotificationsError: LocalizedError {
 
 public class MWPushNotificationsViewController: MobileWorkflowButtonViewController {
     
-    private var registration: Cancellable?
+    private var registration: AnyCancellable?
+    private var pendingDidBecomeActive: AnyCancellable?
     
     private var pushNotificationsStep: MWPushNotificationsStep {
         guard let pushNotificationsStep = self.step as? MWPushNotificationsStep else {
@@ -46,17 +51,66 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         super.viewDidLoad()
         
         self.configureWithTitle(self.pushNotificationsStep.title ?? "NO_TITLE", body: self.pushNotificationsStep.text ?? "NO_TEXT", buttonTitle: "Enable") {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] success, error in
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
                 DispatchQueue.main.async {
-                    if success {
-                        self?.register()
-                    } else if let error = error {
+                    if let error = error {
                         self?.show(error)
+                    } else if granted {
+                        self?.register()
                     } else {
-                        assertionFailure("Failed and had no errors.")
+                        self?.userDeniedPermission()
                     }
                 }
             }
+        }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.determineCurrentStatus(completion: self.resolveStatusBeforeUserAction)
+    }
+    
+    private func determineCurrentStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                completion(settings.authorizationStatus)
+            }
+        }
+    }
+    
+    private func resolveStatusBeforeUserAction(_ status: UNAuthorizationStatus) {
+        switch status {
+        case .authorized:
+            self.register() // obtain/re-obtain token
+        case .denied:
+            self.showConfirmationAlert(
+                title: L10n.PushNotification.deniedTitle,
+                message: L10n.PushNotification.deniedText,
+                cancelTitle: L10n.PushNotification.deniedCancelTitle,
+                confirmTitle: L10n.PushNotification.deniedConfirmTitle,
+                actionHandler: { [weak self] didConfirm in
+                    if didConfirm {
+                        self?.openSettings()
+                    } else {
+                        self?.userDeniedPermission()
+                    }
+                })
+        case .notDetermined, .provisional, .ephemeral:
+            fallthrough
+        @unknown default:
+            break // wait for user to tap button
+        }
+    }
+    
+    private func resolveStatusAfterUserAction(_ status: UNAuthorizationStatus) {
+        switch status {
+        case .authorized, .provisional, .ephemeral:
+            self.register() // obtain/re-obtain token
+        case .denied, .notDetermined:
+            fallthrough
+        @unknown default:
+            self.userDeniedPermission()
         }
     }
     
@@ -77,10 +131,24 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
             }
     }
     
+    private func openSettings() {
+        self.pendingDidBecomeActive = self.pushNotificationsStep.services.eventService.didBecomeActivePublisher()
+            .sink { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusAfterUserAction)
+            }
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     private func didReceiveToken(_ token: Data) {
         let stringToken = token.map({ String(format: "%02x", $0) }).joined()
         let result = MWPushNotificationsResult(identifier: self.pushNotificationsStep.identifier, apnsToken: stringToken)
         self.addResult(result)
         self.goForward()
+    }
+    
+    private func userDeniedPermission() {
+        self.goForward() // go forward without adding token result
     }
 }

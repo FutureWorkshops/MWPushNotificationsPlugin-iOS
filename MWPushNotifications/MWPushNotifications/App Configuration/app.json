@@ -1,20 +1,47 @@
 {
-    "gatherAnalytics": false,
     "id": 400,
-    "locales": [],
     "name": "Notifications",
-    "navigationStyle": "list",
-    "servers": [],
     "systemTintColor": "blue",
+    "navigationStyle": "list",
+    "gatherAnalytics": false,
     "workflows": [
         {
-            "id": 767,
-            "identifier": "Notification Permission",
-            "materialIconName": "",
-            "name": "Notification Permission",
+            "steps": [
+                {
+                    "optional": false,
+                    "identifier": "notifications",
+                    "title": "Notifications",
+                    "text": "We would like to send you notifications to let you know about offers!",
+                    "imageURL": "https://source.unsplash.com/xv7-GlvBLFw/800x600",
+                    "androidFirebaseJson": "{   \"project_info\": {     \"project_number\": \"315593592662\",     \"project_id\": \"mobile-workflow-sample-app\",     \"storage_bucket\": \"mobile-workflow-sample-app.appspot.com\"   },   \"client\": [     {       \"client_info\": {         \"mobilesdk_app_id\": \"1:315593592662:android:69a9c9e42e50c45ed610f7\",         \"android_client_info\": {           \"package_name\": \"com.futureworkshops.mobileworkflow.plugin.push\"         }       },       \"oauth_client\": [         {           \"client_id\": \"315593592662-9qeg343hconvpn821f4n02n5blatgi30.apps.googleusercontent.com\",           \"client_type\": 3         }       ],       \"api_key\": [         {           \"current_key\": \"AIzaSyBmHbEj-gNxLMx836joA8UiXris_2jWemU\"         }       ],       \"services\": {         \"appinvite_service\": {           \"other_platform_oauth_client\": [             {               \"client_id\": \"315593592662-9qeg343hconvpn821f4n02n5blatgi30.apps.googleusercontent.com\",               \"client_type\": 3             }           ]         }       }     }   ],   \"configuration_version\": \"1\" }",
+                    "uuid": "ab511049-3a07-4aed-b59d-8f46e02a3fec",
+                    "type": "io.mobileworkflow.NotificationPermission"
+                },
+                {
+                    "optional": false,
+                    "_class": "MobileWorkflowEmailStep",
+                    "identifier": "apn_token_title",
+                    "title": "APN Token Title",
+                    "text": "APN Token Text",
+                    "sendTo": "xavi@futureworkshops.com",
+                    "requestPropertyIdentifiers": [
+                        "notifications.token"
+                    ],
+                    "uuid": "16100d6b-45d4-45a1-8ad6-8851ef9c2e9c",
+                    "type": "email"
+                }
+            ],
             "navigationRules": [
                 {
                     "from": "notifications",
+                    "rules": [
+                        {
+                            "to": "apn_token_title"
+                        }
+                    ]
+                },
+                {
+                    "from": "apn_token_title",
                     "rules": [
                         {
                             "to": "ORKNullStepIdentifier"
@@ -22,18 +49,17 @@
                     ]
                 }
             ],
+            "id": 767,
+            "identifier": "Notification Permission",
+            "name": "Notification Permission",
             "sfSymbolName": "",
-            "steps": [
-                {
-                    "identifier": "notifications",
-                    "imageURL": "https://source.unsplash.com/xv7-GlvBLFw/800x600",
-                    "optional": false,
-                    "text": "We would like to send you notifications to let you know about offers!",
-                    "title": "Notifications",
-                    "type": "io.mobileworkflow.NotificationPermission",
-                    "uuid": "ab511049-3a07-4aed-b59d-8f46e02a3fec"
-                }
-            ]
+            "materialIconName": ""
         }
+    ],
+    "servers": [
+
+    ],
+    "locales": [
+
     ]
 }
