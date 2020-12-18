@@ -119,7 +119,8 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     }
     
     private func register(currentStatus: UNAuthorizationStatus) {
-        self.registration = self.pushNotificationsStep.services.eventService.apnsTokenPublisher()
+        let publisher: AnyPublisher<Data?, Error> = self.pushNotificationsStep.services.eventService.publisher(for: .apnsTokenRegistered)
+        self.registration = publisher
             .timeout(5.0, scheduler: DispatchQueue.global(), customError: { MWPushNotificationsError.registrationTimeout })
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -136,8 +137,11 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     }
     
     private func openSettings() {
-        self.pendingDidBecomeActive = self.pushNotificationsStep.services.eventService.didBecomeActivePublisher()
-            .sink { [weak self] in
+        let publisher: AnyPublisher<Notification?, Error> = self.pushNotificationsStep.services.eventService.publisher(for: .notification(name: UIApplication.didBecomeActiveNotification))
+        self.pendingDidBecomeActive = publisher
+            .sink { [weak self] _ in
+                self?.pendingDidBecomeActive = nil
+            } receiveValue: { [weak self] _ in
                 guard let strongSelf = self else { return }
                 strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusAfterUserAction)
             }
