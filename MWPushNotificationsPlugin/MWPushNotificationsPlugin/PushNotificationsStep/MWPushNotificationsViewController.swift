@@ -125,10 +125,12 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     
     private func register(currentStatus: UNAuthorizationStatus) {
         let publisher: AnyPublisher<Data?, Error> = self.pushNotificationsStep.services.eventService.publisher(for: .apnsTokenRegistered)
+        self.showLoading()
         self.registration = publisher
-            .timeout(5.0, scheduler: DispatchQueue.global(), customError: { MWPushNotificationsError.registrationTimeout })
+            .timeout(3.0, scheduler: DispatchQueue.global(), customError: { MWPushNotificationsError.registrationTimeout })
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
+                self?.hideLoading()
                 switch completion {
                 case .finished: break
                 case .failure(let error):
