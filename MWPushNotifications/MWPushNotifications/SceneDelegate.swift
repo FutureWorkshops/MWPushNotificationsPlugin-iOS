@@ -10,53 +10,12 @@ import UIKit
 import MWPushNotificationsPlugin
 import MobileWorkflowCore
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: MobileWorkflowSceneDelegate {
 
-    var window: UIWindow?
-    private var urlSchemeManagers: [URLSchemeManager] = []
-    private var rootViewController: MobileWorkflowRootViewController!
-    
-    private var appDelegate: AppDelegate? { UIApplication.shared.delegate as? AppDelegate }
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = scene as? UIWindowScene else { return }
+    override func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let eventService = EventServiceImplementation()
-        self.appDelegate?.eventDelegate = eventService
+        self.dependencies.plugins = [MWPushNotificationsPlugin.self]
         
-        let networkService = NetworkServiceImplementation(authRedirectHandler: eventService.authRedirectHandler())
-        
-        let manager = AppConfigurationManager(
-            withPlugins: [MWPushNotificationsPlugin.self],
-            fileManager: FileManager.default,
-            networkService: networkService,
-            eventService: eventService
-        )
-        let preferredConfigurations = self.preferredConfigurations(urlContexts: connectionOptions.urlContexts)
-        self.rootViewController = MobileWorkflowRootViewController(manager: manager, preferredConfigurations: preferredConfigurations)
-        
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = self.rootViewController
-        window.makeKeyAndVisible()
-        self.window = window
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let context = self.urlSchemeManagers.firstValidConfiguration(from: URLContexts) else { return }
-        self.rootViewController.loadAppConfiguration(context)
-    }
-}
-
-extension SceneDelegate {
-    
-    private func preferredConfigurations(urlContexts: Set<UIOpenURLContext>) -> [AppConfigurationContext] {
-        
-        var preferredConfigurations = [AppConfigurationContext]()
-        
-        if let appPath = Bundle.main.path(forResource: "app", ofType: "json") {
-            preferredConfigurations.append(.file(path: appPath, serverId: nil, workflowId: nil, sessionValues: nil))
-        }
-        
-        return preferredConfigurations
+        super.scene(scene, willConnectTo: session, options: connectionOptions)
     }
 }
