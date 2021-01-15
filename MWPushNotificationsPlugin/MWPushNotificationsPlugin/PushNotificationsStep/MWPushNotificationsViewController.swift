@@ -17,6 +17,8 @@ enum L10n {
         static let deniedText = "You have currently opted out of receiving Push Notifications. You can update this preference in Settings."
         static let deniedCancelTitle = "Skip"
         static let deniedConfirmTitle = "Settings"
+        static let enableButtonTitle = "Enable"
+        static let skipButtonTitle = "Skip"
     }
 }
 
@@ -50,25 +52,18 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureWithTitle(self.pushNotificationsStep.title ?? "NO_TITLE", body: self.pushNotificationsStep.text ?? "NO_TEXT", buttonTitle: "Enable") {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
-                DispatchQueue.main.async {
-                    if let error = error {
-                        self?.show(error)
-                    } else if granted {
-                        self?.register(currentStatus: .authorized)
-                    } else {
-                        self?.userDeniedPermission(currentStatus: .denied)
-                    }
-                }
-            }
-        }
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.determineCurrentStatus(completion: self.resolveStatusBeforeUserAction)
+        self.configureWithTitle(
+            self.pushNotificationsStep.title ?? "NO_TITLE",
+            body: self.pushNotificationsStep.text ?? "NO_TEXT",
+            primaryConfig: .init(title: L10n.PushNotification.enableButtonTitle, action: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusBeforeRegistration)
+            }),
+            secondaryConfig: .init(title: L10n.PushNotification.skipButtonTitle, action: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusAfterUserAction)
+            })
+        )
     }
     
     private func determineCurrentStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
@@ -79,10 +74,8 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         }
     }
     
-    private func resolveStatusBeforeUserAction(_ status: UNAuthorizationStatus) {
+    private func resolveStatusBeforeRegistration(_ status: UNAuthorizationStatus) {
         switch status {
-        case .authorized:
-            self.register(currentStatus: status) // obtain/re-obtain token
         case .denied:
             self.showConfirmationAlert(
                 title: L10n.PushNotification.deniedTitle,
@@ -96,10 +89,22 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                         self?.userDeniedPermission(currentStatus: status)
                     }
                 })
-        case .notDetermined, .provisional, .ephemeral:
+        case .notDetermined:
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self?.show(error)
+                    } else if granted {
+                        self?.register(currentStatus: .authorized)
+                    } else {
+                        self?.userDeniedPermission(currentStatus: .denied)
+                    }
+                }
+            }
+        case .authorized, .provisional, .ephemeral:
             fallthrough
         @unknown default:
-            break // wait for user to tap button
+            self.register(currentStatus: status)
         }
     }
     
@@ -127,7 +132,8 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
                 switch completion {
                 case .finished: break
                 case .failure(let error):
-                    self?.show(error)
+                    debugPrint(error.localizedDescription)
+                    self?.goForward() // continue anyway
                 }
                 self?.registration = nil
             } receiveValue: { [weak self] data in
