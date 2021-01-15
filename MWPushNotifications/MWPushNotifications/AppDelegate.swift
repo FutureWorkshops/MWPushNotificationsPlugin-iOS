@@ -9,9 +9,9 @@ import UIKit
 import MobileWorkflowCore
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppEventDelegator {
 
-    weak var eventDelegate: AppDelegateEventDelegate?
+    weak var eventDelegate: AppEventDelegate?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
