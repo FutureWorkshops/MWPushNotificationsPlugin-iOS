@@ -27,9 +27,9 @@ public class MWPushNotificationsStep: ORKStep {
 }
 
 extension MWPushNotificationsStep: MobileWorkflowStep {
-    public static func build(step: StepInfo, services: MobileWorkflowServices) throws -> ORKStep {
-        let newStep = MWPushNotificationsStep(identifier: step.data.identifier, services: services)
-        newStep.text = step.data.content["text"] as? String
+    public static func build(stepInfo: StepInfo, services: MobileWorkflowServices) throws -> Step {
+        let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, services: services)
+        newStep.text = stepInfo.data.content["text"] as? String
         return newStep
     }
 }
