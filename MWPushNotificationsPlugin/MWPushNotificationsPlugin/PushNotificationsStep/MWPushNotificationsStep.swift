@@ -8,11 +8,11 @@
 import Foundation
 import MobileWorkflowCore
 
-public class MWPushNotificationsStep: ORKStep {
+public class MWPushNotificationsStep: MWStep {
     
-    let services: MobileWorkflowServices
+    let services: StepServices
     
-    init(identifier: String, services: MobileWorkflowServices) {
+    init(identifier: String, services: StepServices) {
         self.services = services
         super.init(identifier: identifier)
     }
@@ -21,13 +21,13 @@ public class MWPushNotificationsStep: ORKStep {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func stepViewControllerClass() -> AnyClass {
-        return MWPushNotificationsViewController.self
+    public override func instantiateViewController() -> StepViewController {
+        return MWPushNotificationsViewController(step: self)
     }
 }
 
-extension MWPushNotificationsStep: MobileWorkflowStep {
-    public static func build(stepInfo: StepInfo, services: MobileWorkflowServices) throws -> Step {
+extension MWPushNotificationsStep: BuildableStep {
+    public static func build(stepInfo: StepInfo, services: StepServices) throws -> Step {
         let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, services: services)
         newStep.text = stepInfo.data.content["text"] as? String
         return newStep
