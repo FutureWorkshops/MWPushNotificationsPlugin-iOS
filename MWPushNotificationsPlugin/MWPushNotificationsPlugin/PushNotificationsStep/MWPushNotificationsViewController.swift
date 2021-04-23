@@ -37,16 +37,13 @@ enum MWPushNotificationsError: LocalizedError {
     }
 }
 
-public class MWPushNotificationsViewController: MobileWorkflowButtonViewController {
+public class MWPushNotificationsViewController: MWInstructionStepViewController {
     
     private var registration: AnyCancellable?
     private var pendingDidBecomeActive: AnyCancellable?
     
     private var pushNotificationsStep: MWPushNotificationsStep {
-        guard let pushNotificationsStep = self.step as? MWPushNotificationsStep else {
-            preconditionFailure("Unexpected step type. Expecting \(String(describing: MWPushNotificationsStep.self)), got \(String(describing: type(of: self.step)))")
-        }
-        return pushNotificationsStep
+        self.mwStep as! MWPushNotificationsStep
     }
     
     public override func viewDidLoad() {
@@ -55,11 +52,11 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
         self.configureWithTitle(
             self.pushNotificationsStep.title ?? "NO_TITLE",
             body: self.pushNotificationsStep.text ?? "NO_TEXT",
-            primaryConfig: .init(title: L10n.PushNotification.enableButtonTitle, action: { [weak self] in
+            primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.PushNotification.enableButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusBeforeRegistration)
             }),
-            secondaryConfig: .init(title: L10n.PushNotification.skipButtonTitle, action: { [weak self] in
+            secondaryConfig: .init(isEnabled: true, style: .textOnly, title: L10n.PushNotification.skipButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusAfterUserAction)
             })
@@ -160,7 +157,7 @@ public class MWPushNotificationsViewController: MobileWorkflowButtonViewControll
     private func didReceiveToken(_ token: Data, currentStatus: UNAuthorizationStatus) {
         let stringToken = token.map({ String(format: "%02x", $0) }).joined()
         let result = MWPushNotificationsResult(identifier: self.pushNotificationsStep.identifier, status: currentStatus.name, token: stringToken)
-        self.addResult(result)
+        self.addStepResult(result)
         self.goForward()
     }
 }
