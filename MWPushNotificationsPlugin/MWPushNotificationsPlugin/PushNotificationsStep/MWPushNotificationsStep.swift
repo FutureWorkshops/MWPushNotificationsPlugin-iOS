@@ -8,11 +8,15 @@
 import Foundation
 import MobileWorkflowCore
 
-public class MWPushNotificationsStep: MWStep {
+public class MWPushNotificationsStep: MWStep, InstructionStep {
     
-    let services: StepServices
+    public var imageURL: String? { nil }
+    public var image: UIImage? { nil }
+    public let session: Session
+    public let services: StepServices
     
-    init(identifier: String, services: StepServices) {
+    init(identifier: String, session: Session, services: StepServices) {
+        self.session = session
         self.services = services
         super.init(identifier: identifier)
     }
@@ -22,13 +26,13 @@ public class MWPushNotificationsStep: MWStep {
     }
     
     public override func instantiateViewController() -> StepViewController {
-        MWPushNotificationsViewController(step: self)
+        MWPushNotificationsViewController(instructionStep: self)
     }
 }
 
 extension MWPushNotificationsStep: BuildableStep {
     public static func build(stepInfo: StepInfo, services: StepServices) throws -> Step {
-        let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, services: services)
+        let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, session: stepInfo.session, services: services)
         newStep.text = stepInfo.data.content["text"] as? String
         return newStep
     }
