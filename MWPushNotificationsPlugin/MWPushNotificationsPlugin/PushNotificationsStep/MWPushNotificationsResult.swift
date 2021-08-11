@@ -8,62 +8,53 @@
 import Foundation
 import MobileWorkflowCore
 
-fileprivate let kStatus = "status"
-fileprivate let kToken = "token"
-
-final class MWPushNotificationsResult: ORKResult, Codable {
+class MWPushNotificationsResult: StepResult, Codable {
     
+    enum CodingKeys: String, CodingKey {
+        case identifier
+        case status
+        case token
+        case tokenType = "token_type"
+    }
+    
+    var identifier: String
     let status: String
     let token: String
+    let tokenType: String
     
-    init(identifier: String, status: String, token: String) {
+    init(identifier: String, status: String, token: String, tokenType: String = "apns") {
+        self.identifier = identifier
         self.status = status
         self.token = token
-        super.init(identifier: identifier)
-    }
-    
-    override func copy() -> Any {
-        return MWPushNotificationsResult(identifier: self.identifier, status: self.status, token: self.token)
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        guard let status = decoder.decodeObject(forKey: kStatus) as? String else { return nil }
-        guard let token = decoder.decodeObject(forKey: kToken) as? String else { return nil }
-        self.status = status
-        self.token = token
-        super.init(coder: decoder)
-    }
-    
-    override func encode(with coder: NSCoder) {
-        coder.encode(self.status, forKey: kStatus)
-        coder.encode(self.token, forKey: kToken)
-        super.encode(with: coder)
+        self.tokenType = tokenType
     }
 }
 
 extension MWPushNotificationsResult: ValueProvider {
     var content: [AnyHashable : Codable] {
-        return [self.identifier: [kStatus: self.status, kToken: self.token]]
+        return [
+            self.identifier: [
+                CodingKeys.status.rawValue: self.status,
+                CodingKeys.token.rawValue: self.token,
+                CodingKeys.tokenType.rawValue: self.tokenType
+            ]
+        ]
     }
     
     func fetchValue(for path: String) -> Any? {
-        if path == kStatus {
+        if path == CodingKeys.status.rawValue {
             return self.status
-        } else if path == kToken {
+        } else if path == CodingKeys.token.rawValue {
             return self.token
+        } else if path == CodingKeys.tokenType.rawValue {
+            return self.tokenType
         } else {
             return nil
         }
     }
     
     func fetchProvider(for path: String) -> ValueProvider? {
-        if path == kStatus {
-            return self.status
-        } else if path == kToken {
-            return self.token
-        } else {
-            return nil
-        }
+        return nil
     }
 }
 
