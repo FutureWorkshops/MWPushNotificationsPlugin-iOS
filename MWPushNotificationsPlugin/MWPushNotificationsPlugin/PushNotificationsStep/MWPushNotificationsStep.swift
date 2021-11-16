@@ -10,7 +10,7 @@ import MobileWorkflowCore
 
 public class MWPushNotificationsStep: MWStep, InstructionStep {
     
-    public var imageURL: String? { nil }
+    public var imageURL: String?
     public var image: UIImage? { nil }
     public let session: Session
     public let services: StepServices
@@ -34,6 +34,7 @@ extension MWPushNotificationsStep: BuildableStep {
     public static func build(stepInfo: StepInfo, services: StepServices) throws -> Step {
         let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, session: stepInfo.session, services: services)
         newStep.text = stepInfo.data.content["text"] as? String
+        newStep.imageURL = stepInfo.data.content["imageURL"] as? String
         return newStep
     }
 }
