@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                  = 'MWPushNotificationsPlugin'
-    s.version               = '0.0.12'
+    s.version               = '0.0.13'
     s.summary               = 'Push Notifications plugin for MobileWorkflow on iOS.'
     s.description           = <<-DESC
     Push Notifications plugin for MobileWorkflow on iOS, to obtain user permission and then APNS token.
