@@ -8,7 +8,7 @@
 import Foundation
 import MobileWorkflowCore
 
-public struct MWPushNotificationsPlugin: Plugin {
+public struct MWPushNotificationsPluginStruct: Plugin {
     public static var allStepsTypes: [StepType] {
         return MWPushNotificationsStepType.allCases
     }
