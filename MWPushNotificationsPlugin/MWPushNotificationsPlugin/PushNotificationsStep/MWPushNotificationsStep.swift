@@ -7,6 +7,7 @@
 
 import Foundation
 import MobileWorkflowCore
+import UIKit
 
 public class MWPushNotificationsStep: MWStep, InstructionStep {
     
