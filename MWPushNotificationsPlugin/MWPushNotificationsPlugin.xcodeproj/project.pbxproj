@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B103B1BC258782F00021139F /* MWPushNotificationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */; };
+		43285E3A1BE5C50C131FBFE3 /* MWPushNotificationsStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C17CCC05290722DB3EE422C /* MWPushNotificationsStep.swift */; };
+		45CD4F6C6488EEAABCE76488 /* MWPushNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A1108F3E3B49527A5AF1C /* MWPushNotificationsViewController.swift */; };
+		6FBA2EBAE0C9BC8130D363C4 /* MWPushNotificationsPluginStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F72767E21B087487C61BFD3 /* MWPushNotificationsPluginStruct.swift */; };
 		B1AD684325811E6F003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
-		B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */; };
-		B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */; };
-		B1AD687625812052003A8D01 /* MWPushNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */; };
+		B1AD684A25811E6F003A8D01 /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
+		DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170301233D9701244909C6D4 /* MWPushNotificationsResult.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
 /* End PBXBuildFile section */
@@ -30,21 +30,21 @@
 
 /* Begin PBXFileReference section */
 		0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWPushNotificationsPluginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F72767E21B087487C61BFD3 /* MWPushNotificationsPluginStruct.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPluginStruct.swift; sourceTree = "<group>"; };
+		170301233D9701244909C6D4 /* MWPushNotificationsResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsResult.swift; sourceTree = "<group>"; };
+		17FCB946A94CE073694EA584 /* MWPushNotificationsPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MWPushNotificationsPlugin.h; sourceTree = "<group>"; };
 		44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MWPushNotifications_MWPushNotificationsPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F6A1108F3E3B49527A5AF1C /* MWPushNotificationsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsViewController.swift; sourceTree = "<group>"; };
+		7C17CCC05290722DB3EE422C /* MWPushNotificationsStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsStep.swift; sourceTree = "<group>"; };
 		93E3B82DD636AA25A489CD50 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotifications-MWPushNotificationsPlugin.release.xcconfig"; path = "Target Support Files/Pods-MWPushNotifications-MWPushNotificationsPlugin/Pods-MWPushNotifications-MWPushNotificationsPlugin.release.xcconfig"; sourceTree = "<group>"; };
 		9ADEF979AAC2948D2B8E353F /* Pods-MWPushNotificationsPluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotificationsPluginTests.release.xcconfig"; path = "Target Support Files/Pods-MWPushNotificationsPluginTests/Pods-MWPushNotificationsPluginTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA7721421828052B64961E4C /* Pods-MWPushNotificationsPluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotificationsPluginTests.debug.xcconfig"; path = "Target Support Files/Pods-MWPushNotificationsPluginTests/Pods-MWPushNotificationsPluginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC2AC509D1B8B0C185278273 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig"; path = "Target Support Files/Pods-MWPushNotifications-MWPushNotificationsPlugin/Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig"; sourceTree = "<group>"; };
-		B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsResult.swift; sourceTree = "<group>"; };
 		B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MWPushNotificationsPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWPushNotificationsPlugin.h; sourceTree = "<group>"; };
-		B1AD683D25811E6E003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1AD684225811E6F003A8D01 /* MWPushNotificationsPluginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MWPushNotificationsPluginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPluginTests.swift; sourceTree = "<group>"; };
 		B1AD684925811E6F003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPlugin.swift; sourceTree = "<group>"; };
-		B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsStep.swift; sourceTree = "<group>"; };
-		B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsViewController.swift; sourceTree = "<group>"; };
+		CDD9FD2452E9CE26820029B5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1840DC94BDD6CCA545FE9C18 /* PushNotificationsStep */ = {
+			isa = PBXGroup;
+			children = (
+				4F6A1108F3E3B49527A5AF1C /* MWPushNotificationsViewController.swift */,
+				7C17CCC05290722DB3EE422C /* MWPushNotificationsStep.swift */,
+				170301233D9701244909C6D4 /* MWPushNotificationsResult.swift */,
+			);
+			path = PushNotificationsStep;
+			sourceTree = "<group>";
+		};
 		68F69E81711033E15BFC2B48 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +113,10 @@
 		B1AD683B25811E6E003A8D01 /* MWPushNotificationsPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				B1AD686625811F85003A8D01 /* MWPushNotificationsPlugin.swift */,
-				B1AD686C25811FBF003A8D01 /* PushNotificationsStep */,
-				B1AD683C25811E6E003A8D01 /* MWPushNotificationsPlugin.h */,
-				B1AD683D25811E6E003A8D01 /* Info.plist */,
+				1840DC94BDD6CCA545FE9C18 /* PushNotificationsStep */,
+				0F72767E21B087487C61BFD3 /* MWPushNotificationsPluginStruct.swift */,
+				17FCB946A94CE073694EA584 /* MWPushNotificationsPlugin.h */,
+				CDD9FD2452E9CE26820029B5 /* Info.plist */,
 			);
 			path = MWPushNotificationsPlugin;
 			sourceTree = "<group>";
@@ -118,16 +128,6 @@
 				B1AD684925811E6F003A8D01 /* Info.plist */,
 			);
 			path = MWPushNotificationsPluginTests;
-			sourceTree = "<group>";
-		};
-		B1AD686C25811FBF003A8D01 /* PushNotificationsStep */ = {
-			isa = PBXGroup;
-			children = (
-				B1AD686D25811FD2003A8D01 /* MWPushNotificationsStep.swift */,
-				B1AD687525812052003A8D01 /* MWPushNotificationsViewController.swift */,
-				B103B1BB258782F00021139F /* MWPushNotificationsResult.swift */,
-			);
-			path = PushNotificationsStep;
 			sourceTree = "<group>";
 		};
 		D760899F26E7DE0522D1F551 /* Frameworks */ = {
@@ -146,7 +146,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1AD684A25811E6F003A8D01 /* MWPushNotificationsPlugin.h in Headers */,
+				B1AD684A25811E6F003A8D01 /* (null) in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1AD686E25811FD2003A8D01 /* MWPushNotificationsStep.swift in Sources */,
-				B1AD687625812052003A8D01 /* MWPushNotificationsViewController.swift in Sources */,
-				B1AD686725811F85003A8D01 /* MWPushNotificationsPlugin.swift in Sources */,
-				B103B1BC258782F00021139F /* MWPushNotificationsResult.swift in Sources */,
+				45CD4F6C6488EEAABCE76488 /* MWPushNotificationsViewController.swift in Sources */,
+				43285E3A1BE5C50C131FBFE3 /* MWPushNotificationsStep.swift in Sources */,
+				DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */,
+				6FBA2EBAE0C9BC8130D363C4 /* MWPushNotificationsPluginStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,9 +450,9 @@
 			baseConfigurationReference = AC2AC509D1B8B0C185278273 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = BQHMJ2C6RL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -465,6 +465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.futureworkshops.MWPushNotificationsPlugin.MWPushNotificationsPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -478,9 +479,9 @@
 			baseConfigurationReference = 93E3B82DD636AA25A489CD50 /* Pods-MWPushNotifications-MWPushNotificationsPlugin.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = BQHMJ2C6RL;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -493,6 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.futureworkshops.MWPushNotificationsPlugin.MWPushNotificationsPlugin;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;

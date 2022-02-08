@@ -31,16 +31,6 @@ class MWPushNotificationsResult: StepResult, Codable {
 }
 
 extension MWPushNotificationsResult: ValueProvider {
-    var content: [AnyHashable : Codable] {
-        return [
-            self.identifier: [
-                CodingKeys.status.rawValue: self.status,
-                CodingKeys.token.rawValue: self.token,
-                CodingKeys.tokenType.rawValue: self.tokenType
-            ]
-        ]
-    }
-    
     func fetchValue(for path: String) -> Any? {
         if path == CodingKeys.status.rawValue {
             return self.status
