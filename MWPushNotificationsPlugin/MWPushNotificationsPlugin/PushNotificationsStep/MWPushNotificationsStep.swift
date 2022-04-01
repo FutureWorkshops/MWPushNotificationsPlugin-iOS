@@ -32,6 +32,9 @@ public class MWPushNotificationsStep: MWStep, InstructionStep {
 }
 
 extension MWPushNotificationsStep: BuildableStep {
+    
+    public static var mandatoryCodingPaths: [CodingKey] { [] }
+    
     public static func build(stepInfo: StepInfo, services: StepServices) throws -> Step {
         let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, session: stepInfo.session, services: services)
         newStep.text = stepInfo.data.content["text"] as? String
