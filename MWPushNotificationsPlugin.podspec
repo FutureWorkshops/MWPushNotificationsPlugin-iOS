@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
     s.platform              = :ios
     s.swift_version         = '5'
     s.ios.deployment_target = '13.0'
-	s.default_subspecs      = 'Core'
+    s.default_subspecs      = 'Core'
 	
     s.subspec 'Core' do |cs|
-        cs.dependency            'MobileWorkflow', '~> 2.0.0'
+        cs.dependency            'MobileWorkflow', '~> 2.0.3'
         cs.source_files          = 'MWPushNotificationsPlugin/MWPushNotificationsPlugin/**/*.swift'
     end
 end

@@ -14,7 +14,7 @@ class SceneDelegate: MWSceneDelegate {
 
     override func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        self.dependencies.plugins = [MWPushNotificationsPlugin.self]
+        self.dependencies.plugins = [MWPushNotificationsPluginStruct.self]
         
         super.scene(scene, willConnectTo: session, options: connectionOptions)
     }
