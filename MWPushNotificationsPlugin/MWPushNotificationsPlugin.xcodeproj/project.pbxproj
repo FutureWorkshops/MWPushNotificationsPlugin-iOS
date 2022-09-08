@@ -18,6 +18,9 @@
 		EB7F392028BE01610036A02E /* RecurringStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */; };
 		EB7F392228BE016C0036A02E /* CancelRecurringStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392128BE016C0036A02E /* CancelRecurringStep.swift */; };
 		EB7F392428BE01790036A02E /* CancelRecurringStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392328BE01790036A02E /* CancelRecurringStepViewController.swift */; };
+		EB7F392728BE01DA0036A02E /* RecurringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392628BE01DA0036A02E /* RecurringService.swift */; };
+		EB7F392928BE01FF0036A02E /* RecurringCreateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392828BE01FF0036A02E /* RecurringCreateTask.swift */; };
+		EB7F392B28BE020B0036A02E /* RecurringCancelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392A28BE020B0036A02E /* RecurringCancelTask.swift */; };
 		EBEF558F28C9EA6F00CB026A /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF558E28C9EA6F00CB026A /* L10n.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
@@ -54,6 +57,9 @@
 		EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringStepViewController.swift; sourceTree = "<group>"; };
 		EB7F392128BE016C0036A02E /* CancelRecurringStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRecurringStep.swift; sourceTree = "<group>"; };
 		EB7F392328BE01790036A02E /* CancelRecurringStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRecurringStepViewController.swift; sourceTree = "<group>"; };
+		EB7F392628BE01DA0036A02E /* RecurringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringService.swift; sourceTree = "<group>"; };
+		EB7F392828BE01FF0036A02E /* RecurringCreateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCreateTask.swift; sourceTree = "<group>"; };
+		EB7F392A28BE020B0036A02E /* RecurringCancelTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCancelTask.swift; sourceTree = "<group>"; };
 		EBEF558E28C9EA6F00CB026A /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +131,7 @@
 			children = (
 				EBEF558A28C9E9CE00CB026A /* Resources */,
 				EB7F391B28BE00C60036A02E /* Steps */,
+				EB7F391C28BE00D00036A02E /* Services */,
 				0F72767E21B087487C61BFD3 /* MWPushNotificationsPluginStruct.swift */,
 				17FCB946A94CE073694EA584 /* MWPushNotificationsPlugin.h */,
 				CDD9FD2452E9CE26820029B5 /* Info.plist */,
@@ -176,6 +183,24 @@
 				EB7F391A28BE00850036A02E /* Cancel Recurring */,
 			);
 			path = Steps;
+			sourceTree = "<group>";
+		};
+		EB7F391C28BE00D00036A02E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EB7F392528BE01B00036A02E /* Recurring */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EB7F392528BE01B00036A02E /* Recurring */ = {
+			isa = PBXGroup;
+			children = (
+				EB7F392628BE01DA0036A02E /* RecurringService.swift */,
+				EB7F392828BE01FF0036A02E /* RecurringCreateTask.swift */,
+				EB7F392A28BE020B0036A02E /* RecurringCancelTask.swift */,
+			);
+			path = Recurring;
 			sourceTree = "<group>";
 		};
 		EBEF558A28C9E9CE00CB026A /* Resources */ = {
@@ -348,10 +373,13 @@
 				EB7F391E28BE01480036A02E /* RecurringStep.swift in Sources */,
 				45CD4F6C6488EEAABCE76488 /* MWPushNotificationsViewController.swift in Sources */,
 				43285E3A1BE5C50C131FBFE3 /* MWPushNotificationsStep.swift in Sources */,
+				EB7F392B28BE020B0036A02E /* RecurringCancelTask.swift in Sources */,
+				EB7F392728BE01DA0036A02E /* RecurringService.swift in Sources */,
 				EB7F392428BE01790036A02E /* CancelRecurringStepViewController.swift in Sources */,
 				EB7F392228BE016C0036A02E /* CancelRecurringStep.swift in Sources */,
 				DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */,
 				EBEF558F28C9EA6F00CB026A /* L10n.swift in Sources */,
+				EB7F392928BE01FF0036A02E /* RecurringCreateTask.swift in Sources */,
 				6FBA2EBAE0C9BC8130D363C4 /* MWPushNotificationsPluginStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

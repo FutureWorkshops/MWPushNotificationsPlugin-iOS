@@ -9,6 +9,9 @@ import Foundation
 import MobileWorkflowCore
 
 public struct MWPushNotificationsPluginStruct: Plugin {
+    
+    public static var asyncTaskServices: [AsyncTaskService] = [RecurringService()]
+    
     public static var allStepsTypes: [StepType] {
         return MWPushNotificationsStepType.allCases
     }
