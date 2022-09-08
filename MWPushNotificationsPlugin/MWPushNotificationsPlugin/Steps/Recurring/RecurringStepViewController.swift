@@ -22,6 +22,17 @@ public class RecurringStepViewController: MWInstructionStepViewController {
             body: self.recurringStep.text ?? "NO_TEXT",
             primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.Recurring.doneButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
+                
+                let task = RecurringCreateTask(input: .init(recurrenceRule: strongSelf.recurringStep.recurrenceRule,
+                                                            notificationTitle: strongSelf.recurringStep.notificationTitle,
+                                                            notificationText: strongSelf.recurringStep.notificationText))
+                
+                strongSelf.recurringStep.services.perform(task: task, session: strongSelf.recurringStep.session) { [weak self] result in
+                    switch result {
+                    case .success: self?.goForward()
+                    case .failure(let error): Task { self?.show(error) }
+                    }
+                }
             }),
             secondaryConfig: nil
         )

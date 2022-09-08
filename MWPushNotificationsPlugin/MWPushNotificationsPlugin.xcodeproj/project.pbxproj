@@ -21,6 +21,7 @@
 		EB7F392728BE01DA0036A02E /* RecurringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392628BE01DA0036A02E /* RecurringService.swift */; };
 		EB7F392928BE01FF0036A02E /* RecurringCreateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392828BE01FF0036A02E /* RecurringCreateTask.swift */; };
 		EB7F392B28BE020B0036A02E /* RecurringCancelTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F392A28BE020B0036A02E /* RecurringCancelTask.swift */; };
+		EBEF558D28C9EA5E00CB026A /* RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF558C28C9EA5E00CB026A /* RRule.swift */; };
 		EBEF558F28C9EA6F00CB026A /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF558E28C9EA6F00CB026A /* L10n.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
@@ -60,6 +61,7 @@
 		EB7F392628BE01DA0036A02E /* RecurringService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringService.swift; sourceTree = "<group>"; };
 		EB7F392828BE01FF0036A02E /* RecurringCreateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCreateTask.swift; sourceTree = "<group>"; };
 		EB7F392A28BE020B0036A02E /* RecurringCancelTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCancelTask.swift; sourceTree = "<group>"; };
+		EBEF558C28C9EA5E00CB026A /* RRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRule.swift; sourceTree = "<group>"; };
 		EBEF558E28C9EA6F00CB026A /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 		B1AD683B25811E6E003A8D01 /* MWPushNotificationsPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				EBEF558B28C9E9D600CB026A /* RRule */,
 				EBEF558A28C9E9CE00CB026A /* Resources */,
 				EB7F391B28BE00C60036A02E /* Steps */,
 				EB7F391C28BE00D00036A02E /* Services */,
@@ -209,6 +212,14 @@
 				EBEF558E28C9EA6F00CB026A /* L10n.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EBEF558B28C9E9D600CB026A /* RRule */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF558C28C9EA5E00CB026A /* RRule.swift */,
+			);
+			path = RRule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +388,7 @@
 				EB7F392728BE01DA0036A02E /* RecurringService.swift in Sources */,
 				EB7F392428BE01790036A02E /* CancelRecurringStepViewController.swift in Sources */,
 				EB7F392228BE016C0036A02E /* CancelRecurringStep.swift in Sources */,
+				EBEF558D28C9EA5E00CB026A /* RRule.swift in Sources */,
 				DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */,
 				EBEF558F28C9EA6F00CB026A /* L10n.swift in Sources */,
 				EB7F392928BE01FF0036A02E /* RecurringCreateTask.swift in Sources */,

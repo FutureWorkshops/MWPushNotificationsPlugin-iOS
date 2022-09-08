@@ -22,6 +22,15 @@ public class CancelRecurringStepViewController: MWInstructionStepViewController 
             body: self.cancelRecurringStep.text ?? "NO_TEXT",
             primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.CancelRecurring.doneButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
+                
+                let task = RecurringCancelTask()
+                
+                strongSelf.cancelRecurringStep.services.perform(task: task, session: strongSelf.cancelRecurringStep.session) { [weak self] result in
+                    switch result {
+                    case .success: self?.goForward()
+                    case .failure(let error): Task { self?.show(error) }
+                    }
+                }
             }),
             secondaryConfig: nil
         )
