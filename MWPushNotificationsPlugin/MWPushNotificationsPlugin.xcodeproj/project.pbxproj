@@ -14,6 +14,8 @@
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
 		B1AD684A25811E6F003A8D01 /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 		DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170301233D9701244909C6D4 /* MWPushNotificationsResult.swift */; };
+		EB7F391E28BE01480036A02E /* RecurringStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F391D28BE01480036A02E /* RecurringStep.swift */; };
+		EB7F392028BE01610036A02E /* RecurringStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */; };
 		EBEF558F28C9EA6F00CB026A /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEF558E28C9EA6F00CB026A /* L10n.swift */; };
 		F578215974D8A0F69E4EFF27 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CA1AF35A7512FB0B11F183 /* Pods_MWPushNotifications_MWPushNotificationsPlugin.framework */; };
 		FB393448D494ADCF67C65D83 /* Pods_MWPushNotificationsPluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F045B79BDA94E7710AA54CB /* Pods_MWPushNotificationsPluginTests.framework */; };
@@ -46,6 +48,8 @@
 		B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MWPushNotificationsPluginTests.swift; sourceTree = "<group>"; };
 		B1AD684925811E6F003A8D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD9FD2452E9CE26820029B5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB7F391D28BE01480036A02E /* RecurringStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringStep.swift; sourceTree = "<group>"; };
+		EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringStepViewController.swift; sourceTree = "<group>"; };
 		EBEF558E28C9EA6F00CB026A /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,10 +146,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EB7F391928BE003E0036A02E /* Recurring */ = {
+			isa = PBXGroup;
+			children = (
+				EB7F391D28BE01480036A02E /* RecurringStep.swift */,
+				EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */,
+			);
+			path = Recurring;
+			sourceTree = "<group>";
+		};
 		EB7F391B28BE00C60036A02E /* Steps */ = {
 			isa = PBXGroup;
 			children = (
 				1840DC94BDD6CCA545FE9C18 /* Push Notifications */,
+				EB7F391928BE003E0036A02E /* Recurring */,
 			);
 			path = Steps;
 			sourceTree = "<group>";
@@ -316,6 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7F392028BE01610036A02E /* RecurringStepViewController.swift in Sources */,
+				EB7F391E28BE01480036A02E /* RecurringStep.swift in Sources */,
 				45CD4F6C6488EEAABCE76488 /* MWPushNotificationsViewController.swift in Sources */,
 				43285E3A1BE5C50C131FBFE3 /* MWPushNotificationsStep.swift in Sources */,
 				DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */,

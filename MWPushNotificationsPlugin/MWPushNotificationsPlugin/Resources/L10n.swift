@@ -18,4 +18,9 @@ enum L10n {
         static let enableButtonTitle = "Enable"
         static let skipButtonTitle = "Skip"
     }
+    
+    enum Recurring {
+        static let doneButtonTitle = "Done"
+    }
+    
 }
