@@ -23,4 +23,7 @@ enum L10n {
         static let doneButtonTitle = "Done"
     }
     
+    enum CancelRecurring {
+        static let doneButtonTitle = "Done"
+    }
 }
