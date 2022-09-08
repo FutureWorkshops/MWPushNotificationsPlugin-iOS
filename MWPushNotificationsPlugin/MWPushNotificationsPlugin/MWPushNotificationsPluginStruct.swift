@@ -20,6 +20,8 @@ public struct MWPushNotificationsPluginStruct: Plugin {
 public enum MWPushNotificationsStepType: String, StepType, CaseIterable {
     
     case pushNotifications = "io.mobileworkflow.NotificationPermission"
+    case recurring = "io.app-rail.push-notifications.recurring"
+    case cancelRecurring = "io.app-rail.push-notifications.cancel-recurring"
     
     public var typeName: String {
         return self.rawValue
@@ -28,6 +30,8 @@ public enum MWPushNotificationsStepType: String, StepType, CaseIterable {
     public var stepClass: BuildableStep.Type {
         switch self {
         case .pushNotifications: return MWPushNotificationsStep.self
+        case .recurring: return RecurringStep.self
+        case .cancelRecurring: return CancelRecurringStep.self
         }
     }
 }
