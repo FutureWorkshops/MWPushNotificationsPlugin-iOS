@@ -5,7 +5,7 @@
 //  Created by Pedro Sebastião on 30/08/2022.
 //
 
-import Foundation
+import UIKit
 import MobileWorkflowCore
 
 public class RecurringStep: MWStep, InstructionStep {

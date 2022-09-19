@@ -7,6 +7,7 @@
 
 import Foundation
 import MobileWorkflowCore
+import UserNotifications
 
 internal class RecurringService: NSObject {
     

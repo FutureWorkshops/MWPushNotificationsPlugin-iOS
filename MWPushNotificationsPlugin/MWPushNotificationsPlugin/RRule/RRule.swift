@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import UserNotifications
 
 struct RRule: Codable {
