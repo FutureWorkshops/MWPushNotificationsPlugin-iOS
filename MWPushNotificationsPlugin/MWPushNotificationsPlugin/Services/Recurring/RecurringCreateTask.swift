@@ -15,7 +15,7 @@ struct RecurringCreateTask: AsyncTask {
         let notificationText: String?
     }
     
-    typealias Response = Bool
+    typealias Response = ()
     
     let input: Self.Input
 }

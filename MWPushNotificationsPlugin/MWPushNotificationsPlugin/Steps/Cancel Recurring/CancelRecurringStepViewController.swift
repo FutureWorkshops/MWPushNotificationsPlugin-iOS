@@ -17,9 +17,11 @@ public class CancelRecurringStepViewController: MWInstructionStepViewController 
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let bodyResolved = self.cancelRecurringStep.session.resolve(value: self.cancelRecurringStep.text ?? "NO_TEXT")
+        
         self.configureWithTitle(
             self.cancelRecurringStep.title ?? "NO_TITLE",
-            body: self.cancelRecurringStep.text ?? "NO_TEXT",
+            body: bodyResolved,
             primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.CancelRecurring.doneButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 
