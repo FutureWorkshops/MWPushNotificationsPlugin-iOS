@@ -17,9 +17,11 @@ public class RecurringStepViewController: MWInstructionStepViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        let bodyResolved = self.recurringStep.session.resolve(value: self.recurringStep.text ?? "NO_TEXT")
+        
         self.configureWithTitle(
             self.recurringStep.title ?? "NO_TITLE",
-            body: self.recurringStep.text ?? "NO_TEXT",
+            body: bodyResolved,
             primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.Recurring.doneButtonTitle, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 
