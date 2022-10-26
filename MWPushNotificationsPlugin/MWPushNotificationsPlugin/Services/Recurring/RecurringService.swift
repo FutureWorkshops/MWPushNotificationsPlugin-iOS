@@ -63,6 +63,7 @@ extension RecurringService: AsyncTaskService {
             var notificationContent = UNMutableNotificationContent()
             notificationContent.title = notificationTitle
             notificationContent.body = notificationBody
+            notificationContent.sound = .default
             
             let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString,
                                                             content: notificationContent,
