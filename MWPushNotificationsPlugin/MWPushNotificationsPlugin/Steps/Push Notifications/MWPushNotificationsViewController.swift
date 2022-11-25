@@ -34,20 +34,20 @@ public class MWPushNotificationsViewController: MWInstructionStepViewController 
         self.mwStep as! MWPushNotificationsStep
     }
     private var enableText: String {
-        self.pushNotificationsStep.session.resolve(
-            value: self.pushNotificationsStep.enableText ?? L10n.PushNotification.enableButtonTitle
+        self.pushNotificationsStep.resolve(
+            self.pushNotificationsStep.enableText ?? L10n.PushNotification.enableButtonTitle
         )
     }
     private var skipText: String {
-        self.pushNotificationsStep.session.resolve(
-            value: self.pushNotificationsStep.skipText ?? L10n.PushNotification.skipButtonTitle
+        self.pushNotificationsStep.resolve(
+            self.pushNotificationsStep.skipText ?? L10n.PushNotification.skipButtonTitle
         )
     }
     private var stepTitle: String {
-        self.pushNotificationsStep.session.resolve(value: self.pushNotificationsStep.title ?? "NO_TITLE")
+        self.pushNotificationsStep.resolve(self.pushNotificationsStep.title ?? "NO_TITLE")
     }
     private var stepText: String {
-        self.pushNotificationsStep.session.resolve(value: self.pushNotificationsStep.text ?? "NO_TEXT")
+        self.pushNotificationsStep.resolve(self.pushNotificationsStep.text ?? "NO_TEXT")
     }
     
     public override func viewDidLoad() {

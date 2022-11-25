@@ -9,22 +9,18 @@ import Foundation
 import MobileWorkflowCore
 import UIKit
 
-public class MWPushNotificationsStep: MWStep, InstructionStep {
+public class MWPushNotificationsStep: ObservableStep, InstructionStep {
     
     public let imageURL: String?
     public var image: UIImage? { nil }
-    public let session: Session
-    public let services: StepServices
     public let enableText: String?
     public let skipText: String?
     
     init(identifier: String, text: String?, imageURL: String?, enableText: String?, skipText: String?, session: Session, services: StepServices) {
-        self.session = session
-        self.services = services
         self.enableText = enableText
         self.skipText = skipText
         self.imageURL = imageURL
-        super.init(identifier: identifier)
+        super.init(identifier: identifier, session: session, services: services)
         self.text = text
     }
     
