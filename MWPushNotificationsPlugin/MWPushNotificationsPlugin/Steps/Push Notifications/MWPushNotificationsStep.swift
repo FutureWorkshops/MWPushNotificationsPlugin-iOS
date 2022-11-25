@@ -11,15 +11,21 @@ import UIKit
 
 public class MWPushNotificationsStep: MWStep, InstructionStep {
     
-    public var imageURL: String?
+    public let imageURL: String?
     public var image: UIImage? { nil }
     public let session: Session
     public let services: StepServices
+    public let enableText: String?
+    public let skipText: String?
     
-    init(identifier: String, session: Session, services: StepServices) {
+    init(identifier: String, text: String?, imageURL: String?, enableText: String?, skipText: String?, session: Session, services: StepServices) {
         self.session = session
         self.services = services
+        self.enableText = enableText
+        self.skipText = skipText
+        self.imageURL = imageURL
         super.init(identifier: identifier)
+        self.text = text
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -36,9 +42,14 @@ extension MWPushNotificationsStep: BuildableStep {
     public static var mandatoryCodingPaths: [CodingKey] { [] }
     
     public static func build(stepInfo: StepInfo, services: StepServices) throws -> Step {
-        let newStep = MWPushNotificationsStep(identifier: stepInfo.data.identifier, session: stepInfo.session, services: services)
-        newStep.text = stepInfo.data.content["text"] as? String
-        newStep.imageURL = stepInfo.data.content["imageURL"] as? String
-        return newStep
+        MWPushNotificationsStep(
+            identifier: stepInfo.data.identifier,
+            text: stepInfo.data.content["text"] as? String,
+            imageURL: stepInfo.data.content["imageURL"] as? String,
+            enableText: stepInfo.data.content["enableText"] as? String,
+            skipText: stepInfo.data.content["skipText"] as? String,
+            session: stepInfo.session,
+            services: services
+        )
     }
 }
