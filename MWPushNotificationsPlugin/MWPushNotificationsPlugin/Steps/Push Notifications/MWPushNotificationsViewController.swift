@@ -33,18 +33,34 @@ public class MWPushNotificationsViewController: MWInstructionStepViewController 
     private var pushNotificationsStep: MWPushNotificationsStep {
         self.mwStep as! MWPushNotificationsStep
     }
+    private var enableText: String {
+        self.pushNotificationsStep.session.resolve(
+            value: self.pushNotificationsStep.enableText ?? L10n.PushNotification.enableButtonTitle
+        )
+    }
+    private var skipText: String {
+        self.pushNotificationsStep.session.resolve(
+            value: self.pushNotificationsStep.skipText ?? L10n.PushNotification.skipButtonTitle
+        )
+    }
+    private var stepTitle: String {
+        self.pushNotificationsStep.session.resolve(value: self.pushNotificationsStep.title ?? "NO_TITLE")
+    }
+    private var stepText: String {
+        self.pushNotificationsStep.session.resolve(value: self.pushNotificationsStep.text ?? "NO_TEXT")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureWithTitle(
-            self.pushNotificationsStep.title ?? "NO_TITLE",
-            body: self.pushNotificationsStep.text ?? "NO_TEXT",
-            primaryConfig: .init(isEnabled: true, style: .primary, title: L10n.PushNotification.enableButtonTitle, action: { [weak self] in
+            self.stepTitle,
+            body: self.stepText,
+            primaryConfig: .init(isEnabled: true, style: .primary, title: self.enableText, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusBeforeRegistration)
             }),
-            secondaryConfig: .init(isEnabled: true, style: .textOnly, title: L10n.PushNotification.skipButtonTitle, action: { [weak self] in
+            secondaryConfig: .init(isEnabled: true, style: .textOnly, title: self.skipText, action: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.determineCurrentStatus(completion: strongSelf.resolveStatusAfterUserAction)
             })
