@@ -69,3 +69,64 @@ extension RecurringStep: BuildableStep {
         return newStep
     }
 }
+
+public class NotificationsRecurringMetadata: StepMetadata {
+    enum CodingKeys: CodingKey {
+        case notificationTitle
+        case notificationText
+        case recurrenceRule
+        case text
+        case imageURL
+    }
+    
+    let notificationTitle: String
+    let notificationText: String
+    let recurrenceRule: String
+    let text: String
+    let imageURL: String?
+    
+    init(id: String, title: String, notificationTitle: String, notificationText: String, recurrenceRule: String, text: String, imageURL: String?, next: PushLinkMetadata?, links: [LinkMetadata]) {
+        self.notificationTitle = notificationTitle
+        self.notificationText = notificationText
+        self.recurrenceRule = recurrenceRule
+        self.text = text
+        self.imageURL = imageURL
+        super.init(id: id, type: "io.app-rail.push-notifications.recurring", title: title, next: next, links: links)
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.notificationTitle = try container.decode(String.self, forKey: .notificationTitle)
+        self.notificationText = try container.decode(String.self, forKey: .notificationText)
+        self.recurrenceRule = try container.decode(String.self, forKey: .recurrenceRule)
+        self.text = try container.decode(String.self, forKey: .text)
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.notificationTitle, forKey: .notificationTitle)
+        try container.encode(self.notificationText, forKey: .notificationText)
+        try container.encode(self.recurrenceRule, forKey: .recurrenceRule)
+        try container.encode(self.text, forKey: .text)
+        try container.encodeIfPresent(self.imageURL, forKey: .imageURL)
+        try super.encode(to: encoder)
+    }
+}
+
+public extension StepMetadata {
+    static func notificationsRecurring(
+        id: String,
+        title: String,
+        notificationTitle: String,
+        notificationText: String,
+        recurrenceRule: String,
+        text: String,
+        imageURL: String? = nil,
+        next: PushLinkMetadata? = nil,
+        links: [LinkMetadata] = []
+    ) -> NotificationsRecurringMetadata {
+        return NotificationsRecurringMetadata(id: id, title: title, notificationTitle: notificationTitle, notificationText: notificationText, recurrenceRule: recurrenceRule, text: text, imageURL: imageURL, next: next, links: links)
+    }
+}

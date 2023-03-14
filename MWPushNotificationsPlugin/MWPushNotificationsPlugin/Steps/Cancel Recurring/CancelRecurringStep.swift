@@ -53,3 +53,46 @@ extension CancelRecurringStep: BuildableStep {
         return newStep
     }
 }
+
+public class NotificationsCancelRecurringMetadata: StepMetadata {
+    enum CodingKeys: CodingKey {
+        case text
+        case imageURL
+    }
+    
+    let text: String
+    let imageURL: String?
+    
+    init(id: String, title: String, text: String, imageURL: String?, next: PushLinkMetadata?, links: [LinkMetadata]) {
+        self.text = text
+        self.imageURL = imageURL
+        super.init(id: id, type: "io.app-rail.push-notifications.cancel-recurring", title: title, next: next, links: links)
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.text = try container.decode(String.self, forKey: .text)
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.text, forKey: .text)
+        try container.encodeIfPresent(self.imageURL, forKey: .imageURL)
+        try super.encode(to: encoder)
+    }
+}
+
+public extension StepMetadata {
+    static func notificationsCancelRecurring(
+        id: String,
+        title: String,
+        text: String,
+        imageURL: String? = nil,
+        next: PushLinkMetadata? = nil,
+        links: [LinkMetadata] = []
+    ) -> NotificationsCancelRecurringMetadata {
+        return NotificationsCancelRecurringMetadata(id: id, title: title, text: text, imageURL: imageURL, next: next, links: links)
+    }
+}
