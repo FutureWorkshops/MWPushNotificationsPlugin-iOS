@@ -49,3 +49,58 @@ extension MWPushNotificationsStep: BuildableStep {
         )
     }
 }
+
+public class NotificationsUserPermissionMetadata: StepMetadata {
+    enum CodingKeys: CodingKey {
+        case text
+        case enableText
+        case imageURL
+        case skipText
+    }
+    
+    let text: String
+    let enableText: Bool?
+    let imageURL: String?
+    let skipText: String?
+    
+    init(id: String, title: String, text: String, enableText: Bool?, imageURL: String?, skipText: String?, next: PushLinkMetadata?, links: [LinkMetadata]) {
+        self.text = text
+        self.enableText = enableText
+        self.imageURL = imageURL
+        self.skipText = skipText
+        super.init(id: id, type: "io.mobileworkflow.NotificationPermission", title: title, next: next, links: links)
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.text = try container.decode(String.self, forKey: .text)
+        self.enableText = try container.decodeIfPresent(Bool.self, forKey: .enableText)
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        self.skipText = try container.decodeIfPresent(String.self, forKey: .skipText)
+        try super.init(from: decoder)
+    }
+    
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.text, forKey: .text)
+        try container.encodeIfPresent(self.enableText, forKey: .enableText)
+        try container.encodeIfPresent(self.imageURL, forKey: .imageURL)
+        try container.encodeIfPresent(self.skipText, forKey: .skipText)
+        try super.encode(to: encoder)
+    }
+}
+
+public extension StepMetadata {
+    static func notificationsUserPermission(
+        id: String,
+        title: String,
+        text: String,
+        enableText: Bool? = nil,
+        imageURL: String? = nil,
+        skipText: String? = nil,
+        next: PushLinkMetadata? = nil,
+        links: [LinkMetadata] = []
+    ) -> NotificationsUserPermissionMetadata {
+        return NotificationsUserPermissionMetadata(id: id, title: title, text: text, enableText: enableText, imageURL: imageURL, skipText: skipText, next: next, links: links)
+    }
+}
