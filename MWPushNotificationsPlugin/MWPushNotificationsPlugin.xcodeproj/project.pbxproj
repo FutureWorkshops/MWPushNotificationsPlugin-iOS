@@ -12,7 +12,7 @@
 		6FBA2EBAE0C9BC8130D363C4 /* MWPushNotificationsPluginStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F72767E21B087487C61BFD3 /* MWPushNotificationsPluginStruct.swift */; };
 		B1AD684325811E6F003A8D01 /* MWPushNotificationsPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AD683925811E6E003A8D01 /* MWPushNotificationsPlugin.framework */; };
 		B1AD684825811E6F003A8D01 /* MWPushNotificationsPluginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AD684725811E6F003A8D01 /* MWPushNotificationsPluginTests.swift */; };
-		B1AD684A25811E6F003A8D01 /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
+		B1AD684A25811E6F003A8D01 /* BuildFile in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 		DAC9428D42195556C0334576 /* MWPushNotificationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170301233D9701244909C6D4 /* MWPushNotificationsResult.swift */; };
 		EB7F391E28BE01480036A02E /* RecurringStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F391D28BE01480036A02E /* RecurringStep.swift */; };
 		EB7F392028BE01610036A02E /* RecurringStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F391F28BE01610036A02E /* RecurringStepViewController.swift */; };
@@ -229,7 +229,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1AD684A25811E6F003A8D01 /* (null) in Headers */,
+				B1AD684A25811E6F003A8D01 /* BuildFile in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -525,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
